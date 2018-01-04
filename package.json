@@ -2,7 +2,7 @@
   "name": "gen-webpack-config",
   "version": "0.1.0",
   "bin": "./bin/gen-webpack-config.js",
-  "main": "index.js",
+  "main": "./bin/gen-webpack-config.js",
   "license": "MIT",
   "scripts": {
     "startWebpack": "node ./webpack/devServer.js",
