@@ -15,8 +15,18 @@ fse
 		console.log(e);
 	});
 
-newPKG.devDependencies = originPKG.devDependencies;
-newPKG.scripts = originPKG.scripts;
+for (let i in originPKG.devDependencies) {
+	if (newPKG.devDependencies[i] || newPKG.dependencies[i]) {
+		delete originPKG.devDependencies[i];
+	}
+}
+
+newPKG.devDependencies = Object.assign(
+	{},
+	newPKG.devDependencies,
+	originPKG.devDependencies
+);
+newPKG.scripts = Object.assign({}, newPKG.scripts, originPKG.scripts);
 
 fse
 	.writeJson("./package.json", newPKG, { spaces: 4 })
